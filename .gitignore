@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+build-log.txt
+
+# Environment files
+.env
+.env.local
+
+# npm cache
+.npmrc
+
+# Windows shortcuts
+*.lnk
+

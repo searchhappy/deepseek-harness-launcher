@@ -1,0 +1,51 @@
+{
+  "name": "deepseek-harness-launcher",
+  "version": "1.0.0",
+  "description": "DeepSeek Harness 桌面启动器",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "start:setup": "electron setup-main.js",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "build:setup": "electron-builder --config electron-builder-setup.json"
+  },
+  "keywords": ["deepseek", "harness", "launcher"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.0"
+  },
+  "build": {
+    "appId": "com.deepseek.harness.launcher",
+    "productName": "DeepSeekHarness",
+    "win": {
+      "target": [{
+        "target": "portable",
+        "arch": ["x64"]
+      }],
+      "icon": "assets/icon.ico"
+    },
+    "portable": {
+      "artifactName": "DeepSeekHarness-Portable.exe"
+    },
+    "files": [
+      "main.js",
+      "index.html",
+      "renderer.js",
+      "styles.css",
+      "assets/**/*"
+    ],
+    "extraFiles": [
+      {
+        "from": "node_modules/electron/dist/",
+        "to": ".",
+        "filter": ["**/*"]
+      }
+    ],
+    "extraMetadata": {
+      "name": "deepseekharness"
+    }
+  }
+}

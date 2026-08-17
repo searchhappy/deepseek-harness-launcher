@@ -1,0 +1,9 @@
+{
+  "name": "deepseek-harness-installer",
+  "version": "1.0.0",
+  "description": "DeepSeek Harness 智能安装向导",
+  "main": "setup-main.js",
+  "keywords": ["deepseek", "harness", "installer"],
+  "author": "",
+  "license": "MIT"
+}
