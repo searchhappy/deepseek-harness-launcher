@@ -1,0 +1,48 @@
+{
+  "appId": "com.deepseek.harness.launcher",
+  "productName": "DeepSeek Harness Launcher",
+  "copyright": "Copyright © 2026 searchhappy",
+  "win": {
+    "target": [
+      {
+        "target": "nsis",
+        "arch": ["x64"]
+      }
+    ],
+    "icon": "assets/icon.ico",
+    "artifactName": "DeepSeekHarness-Setup-${version}.${ext}"
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "allowElevation": true,
+    "installerIcon": "assets/icon.ico",
+    "uninstallerIcon": "assets/icon.ico",
+    "installerHeaderIcon": "assets/icon.ico",
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "shortcutName": "DeepSeek Harness",
+    "perMachine": false,
+    "license": "LICENSE",
+    "language": "2052",
+    "installerLanguages": ["zh_CN", "en_US"],
+    "multiLanguageInstaller": true
+  },
+  "files": [
+    "main.js",
+    "index.html",
+    "renderer.js",
+    "styles.css",
+    "assets/**/*"
+  ],
+  "extraFiles": [
+    {
+      "from": "node_modules/electron/dist/",
+      "to": ".",
+      "filter": ["**/*"]
+    }
+  ],
+  "extraMetadata": {
+    "name": "deepseekharness"
+  }
+}

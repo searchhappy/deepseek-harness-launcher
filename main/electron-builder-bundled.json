@@ -1,0 +1,50 @@
+{
+  "appId": "com.deepseek.harness.launcher.bundled",
+  "productName": "DeepSeek Harness Launcher",
+  "copyright": "Copyright © 2026",
+  "win": {
+    "target": [
+      {
+        "target": "nsis",
+        "arch": ["x64"]
+      }
+    ],
+    "icon": "assets/icon.ico",
+    "artifactName": "${productName}-Bundled-${version}.${ext}"
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "allowElevation": true,
+    "installerIcon": "assets/icon.ico",
+    "uninstallerIcon": "assets/icon.ico",
+    "installerHeaderIcon": "assets/icon.ico",
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "shortcutName": "DeepSeek Harness Launcher",
+    "license": "LICENSE",
+    "artifactName": "DeepSeekHarness-Bundled-Installer-${version}.exe"
+  },
+  "files": [
+    "main-bundled.js",
+    "preload.js",
+    "index.html",
+    "renderer.js",
+    "styles.css",
+    "assets/**/*"
+  ],
+  "extraResources": [
+    {
+      "from": "runtime",
+      "to": "runtime",
+      "filter": ["**/*"]
+    }
+  ],
+  "extraMetadata": {
+    "name": "deepseekharness-bundled",
+    "main": "main-bundled.js"
+  },
+  "directories": {
+    "output": "../dist-bundled"
+  }
+}

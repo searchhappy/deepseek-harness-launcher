@@ -1,0 +1,62 @@
+{
+  "name": "deepseek-harness-launcher",
+  "version": "1.0.0",
+  "description": "DeepSeek Harness 桌面启动器",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "start:setup": "electron setup-main.js",
+    "start:bundled": "electron main-bundled.js",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "build:setup": "electron-builder --config electron-builder-setup.json",
+    "build:nsis": "electron-builder --config electron-builder-nsis.json --win",
+    "build:nsis-setup": "electron-builder --config electron-builder-installer-setup.json --win",
+    "build:bundled": "electron-builder --config electron-builder-bundled.json --win",
+    "build:mac": "electron-builder --config electron-builder-nsis.json --mac",
+    "build:mac-setup": "electron-builder --config electron-builder-installer-setup.json --mac",
+    "build:all": "electron-builder --config electron-builder-nsis.json --win --mac",
+    "build:all-setup": "electron-builder --config electron-builder-installer-setup.json --win --mac"
+  },
+  "keywords": [
+    "deepseek",
+    "harness",
+    "launcher"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.0",
+    "@deepseek-ai/dsh": "^0.1.0-rc.7"
+  },
+  "build": {
+    "appId": "com.deepseek.harness.launcher",
+    "productName": "DeepSeekHarness",
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "portable": {
+      "artifactName": "DeepSeekHarness-Portable.exe"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "renderer.js",
+      "styles.css",
+      "assets/**/*"
+    ],
+    "extraMetadata": {
+      "name": "deepseekharness"
+    }
+  }
+}

@@ -1,0 +1,83 @@
+┌─────────────────────────────────────────────────────────────┐
+│                                                             │
+│  🚀 DeepSeek Harness 安装程序 - 快速参考                    │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────┐
+│  Windows NSIS 安装程序（立即可用 ✅）                        │
+└─────────────────────────────────────────────────────────────┘
+
+  cd main
+  npm install
+  npm run build:nsis          # 标准版
+  npm run build:nsis-setup    # 智能安装版
+
+  输出: dist-installer/ 和 dist-setup-installer/
+
+┌─────────────────────────────────────────────────────────────┐
+│  macOS DMG 安装程序                                          │
+└─────────────────────────────────────────────────────────────┘
+
+  1️⃣ 创建图标:
+     https://cloudconvert.com/ico-to-icns
+     上传 main/assets/icon.ico → 下载 icon.icns
+     保存到 main/assets/icon.icns
+
+  2️⃣ 构建 (在 macOS 上):
+     cd main
+     npm run build:mac          # 标准版
+     npm run build:mac-setup    # 智能安装版
+
+┌─────────────────────────────────────────────────────────────┐
+│  GitHub Actions 自动构建（推荐 ⭐⭐⭐）                      │
+└─────────────────────────────────────────────────────────────┘
+
+  git add .
+  git commit -m "Add installers"
+  git push
+  git tag v1.0.0
+  git push origin v1.0.0
+
+  ✅ 自动构建 Windows + macOS
+  ✅ 自动创建 macOS 图标
+  ✅ 自动创建 GitHub Release
+  ✅ 无需 macOS 电脑
+
+┌─────────────────────────────────────────────────────────────┐
+│  📚 文档                                                     │
+└─────────────────────────────────────────────────────────────┘
+
+  README-INSTALLERS.md             - 完整使用说明 🌟
+  QUICK-START.md                   - 快速开始
+  INSTALLER-SUMMARY.md             - 技术细节
+  main/INSTALLER-BUILD-GUIDE.md    - 详细指南
+  安装程序配置完成.txt              - 这个总结
+
+┌─────────────────────────────────────────────────────────────┐
+│  🧪 测试环境                                                 │
+└─────────────────────────────────────────────────────────────┘
+
+  cd main
+  ./test-build.sh
+
+┌─────────────────────────────────────────────────────────────┐
+│  📦 输出文件                                                 │
+└─────────────────────────────────────────────────────────────┘
+
+  Windows:
+    DeepSeekHarness-Installer-1.0.0.exe
+    DeepSeekHarness-Setup-Installer-1.0.0.exe
+
+  macOS:
+    DeepSeek Harness Launcher-1.0.0-x64.dmg (Intel)
+    DeepSeek Harness Launcher-1.0.0-arm64.dmg (Apple Silicon)
+
+┌─────────────────────────────────────────────────────────────┐
+│  💡 推荐                                                     │
+└─────────────────────────────────────────────────────────────┘
+
+  只需 Windows → 直接构建
+  需要两个平台 → 使用 GitHub Actions
+
+  现在就开始: cd main && npm install && npm run build:nsis

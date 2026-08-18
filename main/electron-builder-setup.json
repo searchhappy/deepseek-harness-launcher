@@ -1,0 +1,30 @@
+{
+  "appId": "com.deepseek.harness.installer",
+  "productName": "DeepSeekHarness-Installer",
+  "win": {
+    "target": [{
+      "target": "portable",
+      "arch": ["x64"]
+    }],
+    "icon": "assets/icon.ico"
+  },
+  "portable": {
+    "artifactName": "DeepSeekHarness-Installer.exe"
+  },
+  "files": [
+    "setup-main.js",
+    "setup.html",
+    "setup.js",
+    "main.js",
+    "preload.js",
+    "preload-setup.js",
+    "index.html",
+    "renderer.js",
+    "styles.css",
+    "assets/**/*",
+    "package-installer.json"
+  ],
+  "extraMetadata": {
+    "main": "setup-main.js"
+  }
+}

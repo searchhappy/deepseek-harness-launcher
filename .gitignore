@@ -1,0 +1,53 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build outputs
+dist/
+dist-*/
+*.exe
+*.blockmap
+
+# Logs
+*.log
+build-log.txt
+build-output.log
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+
+# Electron
+out/
+
+# Zip files
+*.zip
+
+# Windows system files - DO NOT include system directories
+$Recycle.Bin/
+$WINDOWS.~BT/
+$WinREAgent/
+*.sys
+pagefile.sys
+swapfile.sys
+hiberfil.sys
+
+# Sensitive data
+.env
+.env.local
+.env.*.local
+
+# NPM
+.npmrc

@@ -1,0 +1,277 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║    🎉 安装程序配置完成！                                      ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+✅ 已成功为 DeepSeek Harness Desktop Launcher 创建完整的安装程序配置
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📦 已创建的文件清单
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📁 配置文件（main 目录）:
+  ✅ electron-builder-nsis.json              - 标准版 NSIS + DMG 配置
+  ✅ electron-builder-installer-setup.json   - 智能安装版 NSIS + DMG 配置
+  ✅ package.json                            - 已更新构建脚本
+
+📁 文档（main 目录）:
+  ✅ INSTALLER-BUILD-GUIDE.md                - 完整构建指南（25KB）
+  ✅ create-mac-icon-windows.md              - Windows 创建 macOS 图标指南
+  ✅ test-build.sh                           - 构建测试脚本
+
+📁 脚本（main 目录）:
+  ✅ create-mac-icon.sh                      - macOS 图标自动创建脚本
+
+📁 CI/CD:
+  ✅ .github/workflows/build-installers.yml  - GitHub Actions 自动构建
+
+📁 文档（根目录）:
+  ✅ QUICK-START.md                          - 快速开始指南
+  ✅ INSTALLER-SUMMARY.md                    - 配置总结
+  ✅ README-INSTALLERS.md                    - 安装程序说明
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 立即开始
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+【方法 1】构建 Windows NSIS 安装程序（推荐 ⭐）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  cd main
+  npm install
+  npm run build:nsis          # 标准版
+  npm run build:nsis-setup    # 智能安装版
+
+  ⏱️  耗时: 5-10 分钟
+  📦 输出:
+    - dist-installer/DeepSeekHarness-Installer-1.0.0.exe
+    - dist-setup-installer/DeepSeekHarness-Setup-Installer-1.0.0.exe
+
+  ✨ 特性:
+    ✓ 专业的安装向导
+    ✓ 自定义安装目录
+    ✓ 桌面快捷方式
+    ✓ 开始菜单项
+    ✓ 完整卸载程序
+    ✓ 显示许可协议
+
+【方法 2】使用 GitHub Actions 自动构建（推荐 ⭐⭐⭐）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  git add .
+  git commit -m "Add installer configurations"
+  git push origin master
+
+  git tag v1.0.0
+  git push origin v1.0.0
+
+  ⏱️  耗时: 10-15 分钟
+  💰 成本: 免费（公共仓库）
+
+  🤖 自动完成:
+    ✓ 在 Windows 虚拟机上构建 Windows NSIS 安装程序
+    ✓ 在 macOS 虚拟机上构建 macOS DMG 安装程序
+    ✓ 自动创建 macOS 图标（icon.icns）
+    ✓ 同时构建 Intel (x64) 和 Apple Silicon (arm64) 版本
+    ✓ 自动创建 GitHub Release
+    ✓ 上传所有安装程序文件
+
+  📥 下载位置:
+    - GitHub Releases 页面
+    - 或 Actions > Artifacts
+
+【方法 3】构建 macOS DMG 安装程序
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  步骤 1: 创建 macOS 图标
+  ─────────────────────────
+
+  【Windows 用户】:
+    1. 访问 https://cloudconvert.com/ico-to-icns
+    2. 上传 main/assets/icon.ico
+    3. 下载转换后的 icon.icns
+    4. 保存到 main/assets/icon.icns
+
+  【macOS 用户】:
+    cd main
+    chmod +x create-mac-icon.sh
+    ./create-mac-icon.sh
+
+  步骤 2: 构建（必须在 macOS 上）
+  ─────────────────────────
+
+  cd main
+  npm install
+  npm run build:mac           # 标准版
+  npm run build:mac-setup     # 智能安装版
+
+  📦 输出:
+    - DeepSeek Harness Launcher-1.0.0-x64.dmg (Intel)
+    - DeepSeek Harness Launcher-1.0.0-arm64.dmg (Apple Silicon)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 可用的构建命令
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  命令                        说明                        平台要求
+  ──────────────────────────────────────────────────────────────
+  npm run build:nsis          标准版 Windows NSIS         Windows
+  npm run build:nsis-setup    智能安装版 Windows NSIS     Windows
+  npm run build:mac           标准版 macOS DMG            macOS
+  npm run build:mac-setup     智能安装版 macOS DMG        macOS
+  npm run build:all           所有平台标准版              对应平台
+  npm run build:all-setup     所有平台智能安装版          对应平台
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📂 输出文件结构
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Deepseek/
+  ├── dist-installer/                          # 标准版
+  │   ├── DeepSeekHarness-Installer-1.0.0.exe
+  │   ├── DeepSeek Harness Launcher-1.0.0-x64.dmg
+  │   └── DeepSeek Harness Launcher-1.0.0-arm64.dmg
+  │
+  └── dist-setup-installer/                    # 智能安装版
+      ├── DeepSeekHarness-Setup-Installer-1.0.0.exe
+      ├── DeepSeek Harness Setup-1.0.0-x64.dmg
+      └── DeepSeek Harness Setup-1.0.0-arm64.dmg
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📚 文档索引
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  📖 README-INSTALLERS.md          - 🌟 从这里开始！完整的使用说明
+  📖 QUICK-START.md                - 快速开始指南
+  📖 INSTALLER-SUMMARY.md          - 配置总结和技术细节
+  📖 main/INSTALLER-BUILD-GUIDE.md - 详细的构建指南
+  📖 main/create-mac-icon-windows.md - 创建 macOS 图标指南
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 推荐工作流
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  【场景 1】只需要 Windows 安装程序
+  ────────────────────────────────
+
+  直接在 Windows 上构建:
+    cd main
+    npm install
+    npm run build:nsis
+    npm run build:nsis-setup
+
+  ⏱️ 耗时: 5-10 分钟
+  ✅ 立即可用
+
+  【场景 2】需要 Windows + macOS 安装程序
+  ────────────────────────────────────────
+
+  使用 GitHub Actions（推荐）:
+    git tag v1.0.0
+    git push origin v1.0.0
+
+    # 等待 10-15 分钟
+    # 从 GitHub Releases 下载所有安装程序
+
+  ⏱️ 耗时: 10-15 分钟
+  ✅ 无需 macOS 电脑
+  ✅ 自动创建 macOS 图标
+  ✅ 同时构建两个架构
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 关键对比
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  便携版 (Portable) vs NSIS 安装程序
+  ────────────────────────────────────
+
+  特性              便携版          NSIS 安装程序
+  ──────────────────────────────────────────────
+  文件类型          .exe            .exe 安装包
+  安装过程          直接运行        需要安装
+  快捷方式          手动创建        自动创建
+  开始菜单          ❌              ✅
+  卸载程序          ❌              ✅
+  系统集成度        低              高
+  适合用户          开发者          普通用户
+
+  标准版 vs 智能安装版
+  ────────────────────
+
+  特性              标准版          智能安装版
+  ──────────────────────────────────────────────
+  启动界面          控制台          安装向导
+  环境检测          ❌              ✅
+  Node.js 引导      ❌              ✅
+  适合用户          开发者          新手
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠️  重要提示
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  1. macOS 图标是必需的
+     构建 macOS 安装程序前必须先创建 main/assets/icon.icns
+
+  2. 跨平台构建限制
+     在 Windows 上构建 macOS DMG 有限制，推荐使用 GitHub Actions
+
+  3. Node.js 版本要求
+     最低: v16.0.0
+     推荐: v18.x 或 v20.x
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🧪 测试你的环境
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  cd main
+  ./test-build.sh
+
+  这个脚本会检查:
+    ✓ Node.js 和 npm 版本
+    ✓ 必需的文件
+    ✓ 配置文件
+    ✓ 依赖安装状态
+    ✓ macOS 图标是否存在
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎉 现在就开始吧！
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  【最快开始】立即构建 Windows 安装程序:
+
+    cd main
+    npm install
+    npm run build:nsis
+
+  【最省心】使用 GitHub Actions 自动构建:
+
+    git tag v1.0.0
+    git push origin v1.0.0
+
+  【详细了解】阅读文档:
+
+    查看 README-INSTALLERS.md
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📞 获取帮助
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  📖 查看文档: README-INSTALLERS.md
+  🧪 运行测试: cd main && ./test-build.sh
+  🌐 官方文档: https://www.electron.build/
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✨ 所有配置已完成，祝你构建顺利！

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self' data:">
+  <title>DeepSeek Harness Launcher</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🚀 DeepSeek Harness Launcher</h1>
+      <p class="subtitle">一键启动和管理 DeepSeek Harness 服务</p>
+    </header>
+
+    <div class="status-bar">
+      <div class="status-info">
+        <span class="status-label">状态:</span>
+        <span id="status" class="status-badge stopped">未运行</span>
+      </div>
+      <div class="status-info">
+        <span class="status-label">命令:</span>
+        <code class="command">npx @deepseek-ai/dsh web</code>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="startBtn" class="btn btn-primary">
+        <span class="btn-icon">▶</span>
+        启动服务
+      </button>
+      <button id="stopBtn" class="btn btn-danger" disabled>
+        <span class="btn-icon">■</span>
+        停止服务
+      </button>
+      <button id="killPortBtn" class="btn btn-secondary">
+        <span class="btn-icon">🔧</span>
+        清除端口占用
+      </button>
+      <button id="clearBtn" class="btn btn-secondary">
+        <span class="btn-icon">🗑</span>
+        清除日志
+      </button>
+      <button id="openWindowBtn" class="btn btn-primary" disabled>
+        <span class="btn-icon">🖥️</span>
+        在应用内打开
+      </button>
+      <button id="openBtn" class="btn btn-secondary">
+        <span class="btn-icon">🌐</span>
+        在浏览器中打开
+      </button>
+    </div>
+
+    <div class="log-container">
+      <div class="log-header">
+        <h2>运行日志</h2>
+      </div>
+      <pre id="logOutput" class="log-output">等待启动服务...</pre>
+    </div>
+
+    <footer>
+      <p>DeepSeek Harness Desktop Launcher v1.0.0</p>
+    </footer>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

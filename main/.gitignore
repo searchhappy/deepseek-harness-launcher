@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+
+# Bundled Node.js runtime (由构建脚本下载生成，不应提交)
+runtime/node/
+runtime/node_modules/
+
+# Build outputs
+dist/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+build-log.txt
+
+# Environment files
+.env
+.env.local
+
+# npm cache
+.npmrc
+
+# Windows shortcuts
+*.lnk
+

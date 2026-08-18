@@ -1,0 +1,21 @@
+# 快速发布命令
+
+## 一键初始化和推送
+
+```bash
+# 进入项目目录
+cd C:\Users\Administration\Desktop\Deepseek
+
+# 初始化并推送（复制整段执行）
+git init && git add . && git commit -m "🎉 Initial release: v1.0.0" && git branch -M main && git remote add origin https://github.com/searchhappy/deepseek-harness-launcher.git && git push -u origin main
+```
+
+## 创建 Release
+
+1. 访问: https://github.com/searchhappy/deepseek-harness-launcher/releases/new
+2. Tag: v1.0.0
+3. Title: 🚀 DeepSeek Harness Desktop Launcher v1.0.0
+4. 上传两个 exe 文件
+5. 发布！
+
+完成！🎊
